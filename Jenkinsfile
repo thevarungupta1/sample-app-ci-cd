@@ -16,11 +16,8 @@ pipeline {
 
         stage('Deploy'){
             steps {
-                bat '''
-                  docker stop web-app || exit 0
-                  docker rm web-app || exit 0
-                  docker run -d -p 3000:3000 --name web-app web-app:latest
-                '''
+                bat  'docker run -d -p 3000:3000 --name web-app web-app:latest'
+                
             }
         }
     }
